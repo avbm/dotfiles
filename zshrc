@@ -15,7 +15,7 @@ export EDITOR=nvim
 # virtualenv wrapper configs
 export WORKON_HOME=$HOME/.venv
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
+source $WORKON_HOME/tools/bin/virtualenvwrapper.sh
 
 alias mkvenv=mkvirtualenv
 alias mvenv=mvvirtualenv
@@ -40,5 +40,7 @@ alias cls=clear
 alias ssh="ssh -A"
 
 # fetch configs specific to machine
-source $HOME/.zshrc_local
+if [ -f $HOME/.zshrc_local ]; then
+    source $HOME/.zshrc_local
+fi
 
