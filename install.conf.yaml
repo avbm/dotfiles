@@ -1,8 +1,9 @@
-- clean: ['~']
+- clean: ['~', '~/.config', '~/.ssh']
 
 - create:
     - ~/bin
     - ~/.ssh
+    - ~/.ssh/sockets
     - ~/.config
 
 - link:
