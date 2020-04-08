@@ -1,0 +1,16 @@
+- clean: ['~']
+
+- create:
+    - ~/bin
+    - ~/.ssh
+    - ~/.config
+
+- link:
+    ~/.profile: profile
+    ~/.gitconfig: gitconfig
+    ~/.zprofile: zprofile
+    ~/.zshrc: zshrc
+    ~/.ssh/config: sshconfig
+    ~/.config/nvim: nvim
+    ~/.tmux.conf: tmux/.tmux.conf
+    ~/.tmux.conf.local: tmux.conf.local

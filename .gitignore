@@ -1,0 +1,5 @@
+
+
+#Ignore netrwhist for nvim
+nvim/.netrwhist
+

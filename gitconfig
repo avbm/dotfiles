@@ -1,0 +1,20 @@
+[user]
+  name = Amod Mulay
+  email = amodmulay1@gmail.com
+
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+  root = rev-parse --show-toplevel
+
+[credential]
+  helper = cache
+
+[include]
+  path = .gitconfig_local
+
