@@ -21,23 +21,14 @@ alias mkvenv=mkvirtualenv
 alias mvenv=mvvirtualenv
 alias rmvenv=rmvirtualenv
 
-# Add local user bin to PATH
-export PATH=$PATH:$HOME/bin
-
-# go related settings
-export GOPATH=$HOME/dev/go
-export PATH=$PATH:$GOPATH/bin
-
-# rust related settings
-# CARGO_HOME=/Users/amodm/.cargo/bin
-export PATH=$PATH:$HOME/.cargo/bin
-
-# terraform override for core builds
-alias terraform="$HOME/bin/terraform"
-
 # Random useful aliases
 alias cls=clear
-alias ssh="ssh -A"
+alias ssh="ssh -A"  # Pass ssh-agent session to server
+
+# Random useful functions
+function gor {
+  cd `git rev-parse --show-toplevel`
+}
 
 # fetch configs specific to machine
 if [ -f $HOME/.zshrc_local ]; then
