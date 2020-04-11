@@ -30,6 +30,28 @@ function gor {
   cd `git rev-parse --show-toplevel`
 }
 
+function add_to_path {
+    # echo "PATH: ${PATH}"
+    if grep -q $1: <<< $PATH \
+        || grep -q :$1: <<< $PATH \
+        || grep -q :$1 <<< $PATH; then
+      return
+    else
+      export PATH=$PATH:$1
+    fi
+}
+
+# Add local user bin to PATH
+add_to_path $HOME/bin
+
+# go related settings
+export GOPATH=$HOME/dev/go
+add_to_path $GOPATH/bin
+
+# rust related settings
+# CARGO_HOME=/Users/amodm/.cargo/bin
+add_to_path $HOME/.cargo/bin
+
 # fetch configs specific to machine
 if [ -f $HOME/.zshrc_local ]; then
     source $HOME/.zshrc_local
