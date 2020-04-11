@@ -34,6 +34,19 @@ Plug 'vim-airline/vim-airline'
 " Manage Tabs and align on '='
 Plug 'godlygeek/tabular'
 
+" Linting for multiple languages
+Plug 'dense-analysis/ale'
+
+" Support for editorconfig
+Plug 'editorconfig/editorconfig-vim'
+
+" autocomplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 """"""""""""""""""""
 " End Plugin config
