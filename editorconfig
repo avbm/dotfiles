@@ -11,6 +11,12 @@ indent_size = 4
 [{*.yml,*.yaml}]
 indent_size = 2
 
+[*.pp]
+indent_size = 2
+
+[*.rb]
+indent_size = 2
+
 [*.json]
 indent_style = 2
 
