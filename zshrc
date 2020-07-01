@@ -81,3 +81,6 @@ bindkey '^G' fzf-repo-widget
 
 
 alias memo="vim $HOME/Documents/memo.md"
+function groot {
+    cd $(git rev-parse --show-toplevel)
+}
