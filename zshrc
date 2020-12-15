@@ -81,6 +81,11 @@ bindkey '^G' fzf-repo-widget
 
 
 alias memo="vim $HOME/Documents/memo.md"
+alias git-gone="git fetch -p && git branch -v | grep '\[gone\]' | cut -d' ' -f3 | xargs git branch -D $1"
 function groot {
     cd $(git rev-parse --show-toplevel)
+}
+
+function clean_known_hosts {
+    sed -i.bak "${1}d" $HOME/.ssh/known_hosts
 }
