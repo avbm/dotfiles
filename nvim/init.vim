@@ -43,6 +43,9 @@ Plug 'editorconfig/editorconfig-vim'
 " autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Git support
+Plug 'tpope/vim-fugitive'
+
 " fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
