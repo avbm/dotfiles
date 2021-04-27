@@ -11,7 +11,7 @@
   type = cat-file -t
   dump = cat-file -p
   root = rev-parse --show-toplevel
-  desc = log --no-merges --pretty=format:\" - [ ] %s%d @%al\" --invert-grep --grep='Merge branch'
+  desc = log --no-merges --reverse --pretty=format:\" - [ ] %s @%al\" --invert-grep --grep='Merge branch'
 
 [credential]
   helper = cache
@@ -21,3 +21,10 @@
 
 [pull]
 	ff = only
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[push]
+	default = current
