@@ -81,7 +81,7 @@ bindkey '^G' fzf-repo-widget
 
 
 alias memo="vim $HOME/Documents/memo.md"
-alias git-gone="git fetch -p && git branch -v | grep '\[gone\]' | cut -d' ' -f3 | xargs git branch -D $1"
+alias git-gone="git fetch -p && git branch -vv | grep ' gone\]' | cut -d' ' -f3 | xargs git branch -D $1"
 function groot {
     cd $(git rev-parse --show-toplevel)
 }
