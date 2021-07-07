@@ -59,6 +59,8 @@ fi
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+[ -f  /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 # widget to go to repo with CTRL-G
 export DEV_ROOT=$HOME/dev
 fzf-repo-widget() {
@@ -89,3 +91,8 @@ function groot {
 function clean_known_hosts {
     sed -i.bak "${1}d" $HOME/.ssh/known_hosts
 }
+
+if [[ "$(uname -s)" == "Linux" ]]; then
+    # Set caps lock as esc in case of external keyboard
+    setxkbmap -option caps:escape
+fi
