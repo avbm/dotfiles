@@ -1,26 +1,21 @@
 [user]
-  name = Amod Mulay
-  email = amodmulay1@gmail.com
+	name = Amod Mulay
+	email = amodmulay1@gmail.com
 
 [alias]
-  co = checkout
-  ci = commit
-  st = status
-  br = branch
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  type = cat-file -t
-  dump = cat-file -p
-  root = rev-parse --show-toplevel
-  desc = log --no-merges --reverse --pretty=format:\" - %s @%al\" --invert-grep --grep='Merge branch'
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	pu = push -u
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+	root = rev-parse --show-toplevel
+	desc = log --no-merges --reverse --pretty=format:\" - %s @%al\" --invert-grep --grep='Merge branch'
 
 [credential]
   helper = cache
-
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
 
 [pull]
 	ff = only
@@ -29,5 +24,10 @@
 	default = current
 
 [include]
-  path = .gitconfig_local
+	path = .gitconfig_local
 
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

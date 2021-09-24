@@ -33,6 +33,12 @@ call plug#begin('~/.local/share/nvim/bundle')
 " Lightweight powerline type statusbar
 Plug 'vim-airline/vim-airline'
 
+" base16 color themes
+Plug 'chriskempson/base16-vim'
+
+" code dark color theme
+Plug 'tomasiser/vim-code-dark'
+
 " Manage Tabs and align on '='
 Plug 'godlygeek/tabular'
 
@@ -55,10 +61,22 @@ Plug 'junegunn/fzf.vim'
 " Go specific
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+" Puppet support
+Plug 'rodjek/vim-puppet'
+"git clone https://github.com/vim-syntastic/syntastic
+
+
 call plug#end()
 """"""""""""""""""""
 " End Plugin config
 """"""""""""""""""""
+
+" Load base16 theme from shell
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+colorscheme codedark
 
 " coc.vim settings
 " use <tab> for trigger completion and navigate to the next complete item
