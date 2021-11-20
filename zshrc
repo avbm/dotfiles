@@ -93,7 +93,7 @@ bindkey '^G' fzf-repo-widget
 
 alias memo="vim $HOME/Documents/memo.md"
 function git-gone {
-    GIT_OUT=$(git fetch -p)
+    GIT_OUT=$(git fetch -p 2>&1)
     echo $GIT_OUT
     GIT_BRANCHES=($(git branch -v | awk '{ print $1}' | grep -v '*'))
     DELETED_BRANCHES=$(echo $GIT_OUT | grep '\[deleted\]' | awk '{ print $NF }' | cut -c8-)
