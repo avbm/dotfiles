@@ -5,6 +5,10 @@ ZSH_THEME="amodm"
 #ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
 
+# override prompt - TODO figure out how to override theme
+PROMPT='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
+PROMPT+="%(?:%{$fg_bold[green]%}❯ :%{$fg_bold[red]%}❯ )%{$reset_color%}"
+
 # set plugins and enable oh-my-zsh
 plugins=(git ssh-agent)
 fpath+=~/.zfunc
