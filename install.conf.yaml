@@ -8,6 +8,7 @@
 
 - link:
     ~/.config/nvim: nvim
+    ~/.doom.d: doom.d
     ~/.editorconfig: editorconfig
     ~/.gitconfig: gitconfig
     ~/.profile: profile
