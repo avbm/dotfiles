@@ -1,8 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="amodm"
-#ZSH_THEME="robbyrussell"
+#ZSH_THEME="amodm"
+ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
 
 # set plugins and enable oh-my-zsh
@@ -81,11 +81,18 @@ fzf-repo-widget() {
     zle redisplay
     return 0
   fi
-  cd "$DEV_ROOT/$dir"
-  unset dir # ensure this doesn't end up appearing in prompt expansion
+  zle push-line # Clear buffer. Auto-restored on next prompt.
+  BUFFER="cd -- ${DEV_ROOT}/${dir}"
+  zle accept-line
   local ret=$?
-  zle fzf-redraw-prompt
+  unset dir # ensure this doesn't end up appearing in prompt expansion
+  zle reset-prompt
   return $ret
+  # cd "$DEV_ROOT/$dir"
+  # unset dir # ensure this doesn't end up appearing in prompt expansion
+  # local ret=$?
+  # zle fzf-redraw-prompt
+  # return $ret
 }
 zle     -N   fzf-repo-widget
 bindkey '^G' fzf-repo-widget
