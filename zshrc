@@ -21,6 +21,9 @@ alias llc="ls -lh --color=always"
 alias vim="nvim"
 export EDITOR=nvim
 
+# alias deprecated egrep
+alias egrep="grep -E"
+
 # virtualenv wrapper configs
 export WORKON_HOME=$HOME/.venv
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
