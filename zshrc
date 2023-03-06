@@ -10,7 +10,7 @@ PROMPT='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 PROMPT+="%(?:%{$fg_bold[green]%}❯ :%{$fg_bold[red]%}❯ )%{$reset_color%}"
 
 # set plugins and enable oh-my-zsh
-plugins=(git ssh-agent)
+plugins=(git ssh-agent gpg-agent)
 fpath+=~/.zfunc
 source $ZSH/oh-my-zsh.sh
 
@@ -107,7 +107,8 @@ zle     -N   fzf-repo-widget
 bindkey '^G' fzf-repo-widget
 
 
-alias memo="vim $HOME/Documents/memo.md"
+alias memo="emacsclient -c  -a emacs $HOME/Documents/Notes/memo.org"
+alias todo="emacsclient -c  -a emacs $HOME/Documents/Notes/todo.org"
 function git-gone {
     GIT_OUT=$(git fetch -p 2>&1)
     echo $GIT_OUT

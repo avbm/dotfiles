@@ -65,6 +65,16 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'rodjek/vim-puppet'
 "git clone https://github.com/vim-syntastic/syntastic
 
+" which-key
+" Plug 'folke/which-key.nvim'
+" 
+" lua << EOF
+"   require("which-key").setup {
+"     -- your configuration comes here
+"     -- or leave it empty to use the default settings
+"     -- refer to the configuration section below
+"   }
+" EOF
 
 call plug#end()
 """"""""""""""""""""
@@ -100,3 +110,4 @@ if exists('*complete_info')
 else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
+
