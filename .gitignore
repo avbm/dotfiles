@@ -3,3 +3,8 @@
 #Ignore netrwhist for nvim
 nvim/.netrwhist
 
+# ignore packer_compiled file
+nvim/plugin/packer_compiled.lua
+
+# ignore all nvim/pack
+nvim/pack/**
