@@ -37,3 +37,5 @@
 	smudge = git-lfs smudge -- %f
 [core]
 	autocrlf = input
+[init]
+	defaultBranch = main
