@@ -52,3 +52,6 @@
 ; add puppet support
 (package! puppet-mode
   :recipe (:host github :repo "voxpupuli/puppet-mode"))
+
+; add rainbow delimiters
+(package! rainbow-delimiters)

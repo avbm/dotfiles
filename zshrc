@@ -38,10 +38,6 @@ alias cls=clear
 alias ssh="ssh -A"  # Pass ssh-agent session to server
 
 # Random useful functions
-function gor {
-  cd `git rev-parse --show-toplevel`
-}
-
 function add_to_path {
     # echo "PATH: ${PATH}"
     if grep -q $1: <<< $PATH \
@@ -60,6 +56,9 @@ add_to_path $HOME/.local/bin
 # go related settings
 export GOPATH=$HOME/dev/go
 add_to_path $GOPATH/bin
+
+alias goupdate="go list -m -json all | jq -r 'select( (.Indirect==null or .Indirect==false) and .Main==null) | (.Path) + \"@\" + (.Version)' | xargs go get -u && go mod tidy"
+alias goupdate-latest="go list -m -json all | jq -r 'select( (.Indirect==null or .Indirect==false) and .Main==null) | (.Path) + \"@latest\"' | xargs go get -u && go mod tidy"
 
 # rust related settings
 # CARGO_HOME=/Users/amodm/.cargo/bin

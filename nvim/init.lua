@@ -11,6 +11,12 @@ require('packer').startup(function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
 
+  -- pin fidget before adding nvim-lspconfig
+  use {
+    'j-hui/fidget.nvim',
+    tag = 'legacy',
+  }
+
   use { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     requires = {
@@ -87,7 +93,7 @@ require('packer').startup(function(use)
 
   -- go related plugins
   use 'ray-x/go.nvim'
-  use 'ray-x/guihua.lua' -- recommanded if need floating window support
+  use 'ray-x/guihua.lua' -- recommended if need floating window support
   use 'neovim/nvim-lspconfig'
   use 'nvim-treesitter/nvim-treesitter'
 
@@ -174,6 +180,18 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 
 -- [[ use Ctrl-Shift-C to copy in normal mode with mouse=a ]]
 vim.keymap.set({'n','v'}, '<C-C>', '"+y', {noremap = false}) -- use <space-y>
+
+
+-- keybindings to manage splits
+vim.keymap.set({'n','v'}, '<Space>wv', ':vsplit<CR>', {noremap = false}) -- open vertical split
+vim.keymap.set({'n','v'}, '<Space>ws', ':split<CR>', {noremap = false}) -- open horizontal split
+vim.keymap.set({'n','v'}, '<Space>wd', ':x<CR>', {noremap = false}) -- save changes, if any and close split
+
+-- keybindings to manage buffers
+vim.keymap.set({'n','v'}, '<Space>bd', ':bd<CR>', {noremap = false}) -- close buffer
+
+-- keybindings to quit with space-q-q
+vim.keymap.set({'n','v'}, '<Space>qq', ':q<CR>', {noremap = false})
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
