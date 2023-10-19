@@ -15,5 +15,6 @@
     ~/.ssh/config: sshconfig
     ~/.tmux.conf: tmux/.tmux.conf
     ~/.tmux.conf.local: tmux.conf.local
+    ~/util/keepassxc2pass.py: util/keepassxc2pass.py
     ~/.zprofile: zprofile
     ~/.zshrc: zshrc
