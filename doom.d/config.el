@@ -21,7 +21,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
+(setq doom-font (font-spec :family "Fira Code" :size 16 :weight 'regular))
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -77,3 +77,7 @@
 
 ;; Projectile projects file in Documents so its outside the .local directory
 (setq projectile-known-projects-file (concat (concat (getenv "HOME") "/Documents/") "projectile.projects"))
+
+;; terraform lsp is buggy - disable it
+(after! lsp-mode
+  (delete 'lsp-terraform lsp-client-packages))
