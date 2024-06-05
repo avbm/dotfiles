@@ -28,3 +28,6 @@ indent_style = tab
 
 [.gitconfig]
 indent_style = tab
+
+[*.org]
+tab_width = 8

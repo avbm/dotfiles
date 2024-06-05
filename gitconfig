@@ -15,19 +15,21 @@
 	desc = log --no-merges --reverse --pretty=format:\" - %s @%al\" --invert-grep --grep='Merge branch'
 
 [credential]
-  helper = cache
+	helper = cache
 
 [pull]
 	ff = only
 
 [push]
 	default = current
+	autosetupremote = true
 
 [include]
 	path = .gitconfig_local
 
 [diff]
 	tool = vimdiff
+#	algorithm = histogram
 [difftool]
 	prompt = false
 [filter "lfs"]
@@ -37,5 +39,14 @@
 	smudge = git-lfs smudge -- %f
 [core]
 	autocrlf = input
+#	pager = delta
 [init]
 	defaultBranch = main
+[merge]
+	conflictstyle = zdiff3
+[rebase]
+	autosquash = true
+[rerere]
+	enabled = true
+[help]
+	autocorrect = 10

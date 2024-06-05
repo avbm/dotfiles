@@ -231,6 +231,11 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  -- Tabular to assist with tab alignment
+  -- :Tab /= to align on =
+  {
+    'godlygeek/tabular'
+  },
 
   -- puppet plugins
   -- 'rodjek/vim-puppet',

@@ -10,11 +10,22 @@ PROMPT='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 PROMPT+="%(?:%{$fg_bold[green]%}❯ :%{$fg_bold[red]%}❯ )%{$reset_color%}"
 
 # set plugins and enable oh-my-zsh
-plugins=(git ssh-agent gpg-agent)
+plugins=(
+    git
+    ssh-agent
+    gpg-agent
+    #zsh-completions
+    #zsh-autocomplete
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
 fpath+=~/.zfunc
 source $ZSH/oh-my-zsh.sh
 
 # ls alias
+if which eza &> /dev/null; then
+    alias ls="eza"
+fi
 alias llc="ls -lh --color=always"
 
 # set editor
