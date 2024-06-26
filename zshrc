@@ -16,15 +16,17 @@ plugins=(
     gpg-agent
     #zsh-completions
     #zsh-autocomplete
-    zsh-autosuggestions
+    #zsh-autosuggestions
     zsh-syntax-highlighting
+    zoxide
 )
+
 fpath+=~/.zfunc
 source $ZSH/oh-my-zsh.sh
 
 # ls alias
 if which eza &> /dev/null; then
-    alias ls="eza"
+    alias ls="eza --icons=automatic"
 fi
 alias llc="ls -lh --color=always"
 
@@ -168,3 +170,8 @@ export BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+# setup syntax color options for zsh
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan'
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=blue'
+
