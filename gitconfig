@@ -50,3 +50,5 @@
 	enabled = true
 [help]
 	autocorrect = 10
+[color]
+	ui = auto

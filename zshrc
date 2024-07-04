@@ -17,8 +17,11 @@ plugins=(
     #zsh-completions
     #zsh-autocomplete
     #zsh-autosuggestions
-    zsh-syntax-highlighting
+    colored-man-pages
+    #zsh-syntax-highlighting
+    fast-syntax-highlighting
     zoxide
+    warhol
 )
 
 fpath+=~/.zfunc
@@ -172,6 +175,6 @@ export BASE16_SHELL="$HOME/.config/base16-shell/"
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # setup syntax color options for zsh
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan'
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=blue'
+#ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan'
+#ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=blue'
 
