@@ -1,4 +1,5 @@
 # Path to your oh-my-zsh installation.
+start_time=$(date +%s%N)
 export ZSH="$HOME/.oh-my-zsh"
 
 #ZSH_THEME="amodm"
@@ -150,7 +151,11 @@ function clean_known_hosts {
 
 if [[ "$(uname -s)" == "Linux" ]]; then
     # Set caps lock as esc in case of external keyboard
-    setxkbmap -option caps:escape
+    if [[ -n $WAYLAND_DISPLAY ]]; then
+        /bin/true # figure out how to set keyboard map with wayland
+    elif [[ -n $DISPLAY ]]; then
+        setxkbmap -option caps:escape
+    fi
 fi
 
 # try out the starship prompt
@@ -177,4 +182,6 @@ export BASE16_SHELL="$HOME/.config/base16-shell/"
 # setup syntax color options for zsh
 #ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan'
 #ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=blue'
+stop_time=$(date +%s%N)
 
+echo "loaded in $(((stop_time - start_time)/1000000)) ms"
