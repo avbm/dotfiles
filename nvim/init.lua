@@ -341,6 +341,15 @@ require("telescope").setup({
     },
 })
 
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>.', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>,', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set('n', '<leader>/', builtin.git_files, { desc = 'Telescope find files in project' })
+
 -- Enable telescope fzf native, if installed
 pcall(require("telescope").load_extension, "fzf")
 
@@ -620,10 +629,17 @@ vim.keymap.set({ "n", "v" }, "<Space>ws", ":split<CR>", { noremap = false }) -- 
 vim.keymap.set({ "n", "v" }, "<Space>wd", ":x<CR>", { noremap = false }) -- save changes, if any and close split
 
 -- keybindings to manage buffers
+vim.keymap.set({ "n", "v" }, "<Space>bp", ":bp<CR>", { noremap = false }) -- previous buffer
+vim.keymap.set({ "n", "v" }, "<Space>bn", ":bn<CR>", { noremap = false }) -- next buffer
 vim.keymap.set({ "n", "v" }, "<Space>bd", ":bd<CR>", { noremap = false }) -- close buffer
 
+-- keybindings to save file with space-f-s
+vim.keymap.set({ "n", "v" }, "<Space>fs", ":w<CR>", { noremap = false })
+
 -- keybindings to quit with space-q-q
+vim.keymap.set({ "n", "v" }, "<Space>wq", ":wq<CR>", { noremap = false })
 vim.keymap.set({ "n", "v" }, "<Space>qq", ":q<CR>", { noremap = false })
+vim.keymap.set({ "n", "v" }, "<Space>Q", ":q!<CR>", { noremap = false })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
