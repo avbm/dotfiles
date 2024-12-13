@@ -42,13 +42,13 @@ export EDITOR=nvim
 alias egrep="grep -E"
 
 # virtualenv wrapper configs
-export WORKON_HOME=$HOME/.venv
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source $WORKON_HOME/tools/bin/virtualenvwrapper.sh
-
-alias mkvenv=mkvirtualenv
-alias mvenv=mvvirtualenv
-alias rmvenv=rmvirtualenv
+## export WORKON_HOME=$HOME/.venv
+## export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+## source $WORKON_HOME/tools/bin/virtualenvwrapper.sh
+##
+## alias mkvenv=mkvirtualenv
+## alias mvenv=mvvirtualenv
+## alias rmvenv=rmvirtualenv
 
 # Random useful aliases
 alias cls=clear
