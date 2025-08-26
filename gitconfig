@@ -52,3 +52,5 @@
 	autocorrect = 10
 [color]
 	ui = auto
+[url "git@github.com:"]
+	insteadOf = https://github.com/

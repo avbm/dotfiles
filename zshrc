@@ -21,11 +21,16 @@ plugins=(
     colored-man-pages
     #zsh-syntax-highlighting
     fast-syntax-highlighting
+    #kubectl
+    #kubectx
     zoxide
     warhol
 )
 
 fpath+=~/.zfunc
+if [[ -d /home/linuxbrew/.linuxbrew/share/zsh/site-functions ]]; then
+    fpath=(/home/linuxbrew/.linuxbrew/share/zsh/site-functions/ $fpath)
+fi
 source $ZSH/oh-my-zsh.sh
 
 # ls alias
@@ -141,6 +146,7 @@ function git-gone {
         git branch -D $branch
     done
 }
+alias grwd="git rev-parse --show-toplevel"
 function groot {
     cd $(git rev-parse --show-toplevel)
 }
