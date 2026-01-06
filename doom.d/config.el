@@ -29,7 +29,7 @@
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 18)
-;; (setq doom-font (font-spec :family "Fira Code" :size 18)
+      ;; (setq doom-font (font-spec :family "Fira Code" :size 18)
       doom-variable-pitch-font (font-spec :family "DejaVu Sans" :size 19))
 
 
@@ -86,3 +86,13 @@
 (after! lsp-mode
   ;; https://github.com/emacs-lsp/lsp-mode/issues/3577#issuecomment-1709232622
   (delete 'lsp-terraform lsp-client-packages))
+
+;; configure copilot.el
+;; accept completion from copilot and fallback to company
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word)))
