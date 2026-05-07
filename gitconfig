@@ -13,6 +13,7 @@
 	dump = cat-file -p
 	root = rev-parse --show-toplevel
 	desc = log --no-merges --reverse --pretty=format:\" - %s @%al\" --invert-grep --grep='Merge branch'
+	count-lines = "! git log --author=\"$1\" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf \"added lines: %s, removed lines: %s, total lines: %s\\n\", add, subs, loc }' #"
 
 [credential]
 	helper = cache

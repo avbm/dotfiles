@@ -66,8 +66,8 @@
 ;;  :recipe (:host github :repo "editor-code-assistant/eca-emacs" :files ("*.el")))
 
 ;; add copilot support
-(package! copilot
-  :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))
+;; (package! copilot
+;;   :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))
 
 ;; add agent shell
 (package! shell-maker)
