@@ -47,7 +47,7 @@ vim.g.maplocalleader = " "
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
     vim.fn.system({
       "git",
         "clone",
@@ -86,7 +86,7 @@ require("lazy").setup({
 
             -- Useful status updates for LSP
             -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-            { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
+            { "j-hui/fidget.nvim", opts = {} },
 
             -- Additional lua configuration, makes nvim stuff amazing!
             "folke/neodev.nvim",
@@ -110,22 +110,7 @@ require("lazy").setup({
     },
 
     -- Useful plugin to show you pending keybinds.
-    {
-        "folke/which-key.nvim",
-        -- config = function()
-        --   vim.o.timeout = true
-        --   vim.o.timeoutlen = 300
-        --   require("which-key").setup {
-        --     -- your configuration comes here
-        --     -- or leave it empty to use the default settings
-        --     -- refer to the configuration section below
-        --     -- disable = nil
-        --     disable = {
-        --       filetypes = { 'TelescopePrompt' },
-        --     }
-        --   }
-        -- end
-    },
+    { "folke/which-key.nvim" },
 
     {
         -- Adds git related signs to the gutter, as well as utilities for managing changes
@@ -256,10 +241,14 @@ require("lazy").setup({
     -- 'rodjek/vim-puppet',
 
     -- go related plugins
-    { "ray-x/go.nvim" },
-    { "ray-x/guihua.lua" }, -- recommanded if need floating window support
-    { "neovim/nvim-lspconfig" },
-    { "nvim-treesitter/nvim-treesitter" },
+    {
+        "ray-x/go.nvim",
+        dependencies = { "ray-x/guihua.lua" },
+        config = function()
+            require("go").setup()
+        end,
+        ft = { "go", "gomod" },
+    },
 
     -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
     --       These are some example plugins that I've included in the kickstart repository.
@@ -352,35 +341,28 @@ require("telescope").setup({
 })
 
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>.', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>,', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-vim.keymap.set('n', '<leader>/', builtin.git_files, { desc = 'Telescope find files in project' })
 
 -- Enable telescope fzf native, if installed
 pcall(require("telescope").load_extension, "fzf")
 
--- See `:help telescope.builtin`
-vim.keymap.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
-vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
+vim.keymap.set('n', '<leader>.', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>,', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "[?] Find recently opened files" })
+vim.keymap.set("n", "<leader><space>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 vim.keymap.set("n", "<leader>/", function()
-    -- You can pass additional configuration to telescope to change theme, layout, etc.
-    require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+    builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
         winblend = 10,
         previewer = false,
     }))
 end, { desc = "[/] Fuzzily search in current buffer" })
 
-vim.keymap.set("n", "<leader>gf", require("telescope.builtin").git_files, { desc = "Search [G]it [F]iles" })
-vim.keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
-vim.keymap.set("n", "<leader>sh", require("telescope.builtin").help_tags, { desc = "[S]earch [H]elp" })
-vim.keymap.set("n", "<leader>sw", require("telescope.builtin").grep_string, { desc = "[S]earch current [W]ord" })
-vim.keymap.set("n", "<leader>sg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
-vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
-vim.keymap.set("n", "<leader>sr", require("telescope.builtin").resume, { desc = "[S]earch [R]esume" })
+vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
+vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
+vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
+vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
+vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
+vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -517,21 +499,9 @@ local on_attach = function(_, bufnr)
     end, { desc = "Format current buffer with LSP" })
 end
 
--- document existing key chains
--- require("which-key").add({
---     ["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
---     ["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
---     ["<leader>g"] = { name = "[G]it", _ = "which_key_ignore" },
---     ["<leader>h"] = { name = "More git", _ = "which_key_ignore" },
---     ["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
---     ["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
---     ["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
--- })
-
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
 require("mason").setup()
-require("mason-lspconfig").setup()
 
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
