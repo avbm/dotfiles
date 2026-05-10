@@ -53,7 +53,6 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
 
-
 ;; add puppet support
 (package! puppet-mode
   :recipe (:host github :repo "voxpupuli/puppet-mode"))
@@ -79,3 +78,7 @@
   :recipe (:host github
            :repo "nineluj/agent-review"
            :files ("*.el")))
+
+;; add copilot
+;;(package! copilot
+;;  :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))

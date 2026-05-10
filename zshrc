@@ -6,13 +6,10 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
 
-# override prompt - TODO figure out how to override theme
-PROMPT='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
-PROMPT+="%(?:%{$fg_bold[green]%}❯ :%{$fg_bold[red]%}❯ )%{$reset_color%}"
-
 # set plugins and enable oh-my-zsh
 plugins=(
     git
+    zsh-jj
     ssh-agent
     gpg-agent
     #zsh-completions
@@ -32,6 +29,11 @@ if [[ -d /home/linuxbrew/.linuxbrew/share/zsh/site-functions ]]; then
     fpath=(/home/linuxbrew/.linuxbrew/share/zsh/site-functions/ $fpath)
 fi
 source $ZSH/oh-my-zsh.sh
+
+# override prompt - TODO figure out how to override theme
+#PROMPT='%{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
+#PROMPT='%{$fg[cyan]%}%c%{$reset_color%} $(jj_prompt_template)'
+#PROMPT+="%(?:%{$fg_bold[green]%}❯ :%{$fg_bold[red]%}❯ )%{$reset_color%}"
 
 # ls alias
 if which eza &> /dev/null; then
@@ -191,3 +193,7 @@ export BASE16_SHELL="$HOME/.config/base16-shell/"
 stop_time=$(date +%s%N)
 
 echo "loaded in $(((stop_time - start_time)/1000000)) ms"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/amodm/.lmstudio/bin"
+# End of LM Studio CLI section
