@@ -177,9 +177,9 @@ if [[ "$TERM" == "xterm-kitty" ]]; then
 fi
 
 # add autocomplete for kubectl
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
-alias k=kubectl
-complete -F __start_kubectl k
+# [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+# alias k=kubectl
+# complete -F __start_kubectl k
 
 # Base16 Shell
 export BASE16_SHELL="$HOME/.config/base16-shell/"
