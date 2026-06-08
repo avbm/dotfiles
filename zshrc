@@ -39,6 +39,7 @@ source $ZSH/oh-my-zsh.sh
 if which eza &> /dev/null; then
     alias ls="eza --icons=automatic"
 fi
+alias lla="ls -alh --color=always"
 alias llc="ls -lh --color=always"
 
 # set editor
