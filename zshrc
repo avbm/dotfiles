@@ -177,7 +177,7 @@ if [[ "$TERM" == "xterm-kitty" ]]; then
 fi
 
 # add autocomplete for kubectl
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+#[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 alias k=kubectl
 complete -F __start_kubectl k
 
@@ -197,3 +197,8 @@ echo "loaded in $(((stop_time - start_time)/1000000)) ms"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/amodm/.lmstudio/bin"
 # End of LM Studio CLI section
+
+# # custom prompt for jujutsu support
+# zstyle ':vcs_info:*:*' formats " %{$fg[blue]%}(%s %{$fg[red]%}%m%u%{$fg[yellow]%}%{$fg[red]%} %b%{$fg[blue]%})%{$reset_color%}"
+# PROMPT="%B%{$fg[yellow]%}%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%c%{$reset_color%}"
+# PROMPT+="\$vcs_info_msg_0_ "
