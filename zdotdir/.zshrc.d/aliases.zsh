@@ -18,6 +18,7 @@ export EDITOR=nvim
 alias ls="eza --icons=automatic"
 alias ll='ls -lh'
 alias la='ls -lAh'
+alias lla='ls -lAh'
 alias ldot='ls -ld .*'
 alias llc="ls -lh --color=always"
 

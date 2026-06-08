@@ -26,8 +26,8 @@ belak/zsh-utils path:utility
 romkatv/zsh-bench kind:path
 
 # OMZ
-getantidote/use-omz        # handle OMZ dependencies
-ohmyzsh/ohmyzsh path:lib   # load OMZ's library`
+#getantidote/use-omz        # handle OMZ dependencies
+#ohmyzsh/ohmyzsh path:lib   # load OMZ's library`
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages
 ohmyzsh/ohmyzsh path:plugins/extract
 ohmyzsh/ohmyzsh path:plugins/git

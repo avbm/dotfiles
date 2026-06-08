@@ -10,5 +10,6 @@ nvim/plugin/packer_compiled.lua
 nvim/pack/**
 
 # ignore embedded .antidote git repo
+zdotdir/.zcompdump
 zdotdir/.antidote/**
 zdotdir/.zcompcache/**
