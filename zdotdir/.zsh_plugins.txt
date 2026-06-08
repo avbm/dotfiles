@@ -21,12 +21,26 @@ belak/zsh-utils path:history
 romkatv/powerlevel10k
 
 # Utilities
-zshzoo/macos conditional:is-macos
+# zshzoo/macos conditional:is-macos
 belak/zsh-utils path:utility
 romkatv/zsh-bench kind:path
+
+# OMZ
+#getantidote/use-omz        # handle OMZ dependencies
+#ohmyzsh/ohmyzsh path:lib   # load OMZ's library`
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
 ohmyzsh/ohmyzsh path:plugins/extract
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/gpg-agent
+#ohmyzsh/ohmyzsh path:plugins/ssh-agent
 
 # Other Fish-like features
 zdharma-continuum/fast-syntax-highlighting  # Syntax highlighting
 zsh-users/zsh-autosuggestions               # Auto-suggestions
-zsh-users/zsh-history-substring-search      # Up/Down to search history
+# zsh-users/zsh-history-substring-search      # Up/Down to search history
+
+# Miscellaneous
+unixorn/warhol.plugin.zsh
+rkh/zsh-jj
+sdiebolt/zsh-ssh-agent
+

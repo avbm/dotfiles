@@ -3,6 +3,9 @@
 # .zshrc - Zsh file loaded on interactive shell sessions.
 #
 
+# Path to your oh-my-zsh installation.
+start_time=$(date +%s%N)
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of .zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -36,5 +39,18 @@ for _rc in ${ZDOTDIR:-$HOME}/.zshrc.d/*.zsh; do
 done
 unset _rc
 
+
+# fetch configs specific to machine
+if [ -f $HOME/.zshrc_local ]; then
+    source $HOME/.zshrc_local
+fi
+
+export TERM="xterm-256color"
+
 # To customize prompt, run `p10k configure` or edit .p10k.zsh.
 [[ ! -f ${ZDOTDIR:-$HOME}/.p10k.zsh ]] || source ${ZDOTDIR:-$HOME}/.p10k.zsh
+
+# stop timer for startup
+stop_time=$(date +%s%N)
+echo "loaded in $(((stop_time - start_time)/1000000)) ms"
+
