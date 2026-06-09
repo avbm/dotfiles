@@ -13,3 +13,4 @@ nvim/pack/**
 zdotdir/.zcompdump
 zdotdir/.antidote/**
 zdotdir/.zcompcache/**
+zdotdir/**
