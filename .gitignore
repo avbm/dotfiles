@@ -8,3 +8,8 @@ nvim/plugin/packer_compiled.lua
 
 # ignore all nvim/pack
 nvim/pack/**
+
+# ignore embedded .antidote git repo
+zdotdir/.zcompdump
+zdotdir/.antidote/**
+zdotdir/.zcompcache/**
