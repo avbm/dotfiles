@@ -11,5 +11,6 @@ nvim/pack/**
 
 # ignore embedded .antidote git repo
 zdotdir/.zcompdump
+zdotdir/.antidote*
 zdotdir/.antidote/**
 zdotdir/.zcompcache/**

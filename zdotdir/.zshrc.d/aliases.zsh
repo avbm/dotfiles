@@ -25,6 +25,7 @@ alias llc="ls -lh --color=always"
 # fix common typos
 alias quit='exit'
 alias cd..='cd ..'
+alias zd="z ~/.dotfiles"
 
 # tar
 alias tarls="tar -tvf"
