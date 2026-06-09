@@ -11,6 +11,7 @@
     ~/.doom.d: doom.d
     ~/.editorconfig: editorconfig
     ~/.gitconfig: gitconfig
+    ~/.config/jj/config.toml: jj/config.toml
     ~/.ssh/config: sshconfig
     ~/.tmux.conf: tmux/.tmux.conf
     ~/.tmux.conf.local: tmux.conf.local
