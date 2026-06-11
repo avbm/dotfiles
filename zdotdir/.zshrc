@@ -6,6 +6,9 @@
 # Path to your oh-my-zsh installation.
 start_time=$(date +%s%N)
 
+# enable zsh profiler
+# zmodload zsh/zprof
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of .zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -49,6 +52,9 @@ export TERM="xterm-256color"
 
 # To customize prompt, run `p10k configure` or edit .p10k.zsh.
 [[ ! -f ${ZDOTDIR:-$HOME}/.p10k.zsh ]] || source ${ZDOTDIR:-$HOME}/.p10k.zsh
+
+# stop zsh profiler and get details
+# zprof
 
 # stop timer for startup
 stop_time=$(date +%s%N)
