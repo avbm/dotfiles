@@ -1,0 +1,48 @@
+#!/bin/zsh
+#
+# .zsh_plugins.txt - antidote plugins file
+#
+
+# Completions
+mattmc3/ez-compinit
+zsh-users/zsh-completions kind:fpath path:src
+aloxaf/fzf-tab  # Remove if you don't use fzf
+
+# Completion styles
+mattmc3/zephyr path:plugins/completion
+
+# Keybindings
+mattmc3/zephyr path:plugins/editor
+
+# History
+mattmc3/zephyr path:plugins/history
+
+# Prompt
+romkatv/powerlevel10k
+
+# Utilities
+# zshzoo/macos conditional:is-macos
+romkatv/zsh-bench kind:path
+
+# OMZ
+#getantidote/use-omz        # handle OMZ dependencies
+ohmyzsh/ohmyzsh path:lib   # load OMZ's library`
+ohmyzsh/ohmyzsh path:plugins/extract
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/gpg-agent
+ohmyzsh/ohmyzsh path:plugins/ssh-agent
+
+# Other Fish-like features
+zdharma-continuum/fast-syntax-highlighting  # Syntax highlighting
+zsh-users/zsh-autosuggestions               # Auto-suggestions
+# zsh-users/zsh-history-substring-search      # Up/Down to search history
+
+# Color output
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+#mattmc3/zephyr path:plugins/color
+unixorn/warhol.plugin.zsh
+
+# Miscellaneous
+rkh/zsh-jj
+#sdiebolt/zsh-ssh-agent
+

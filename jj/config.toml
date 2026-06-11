@@ -1,0 +1,34 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+
+[aliases]
+#l = {
+#    definition = ["log", "-r", "(main..@):: | (main..@)-"],
+#    doc = "Log pending changes"
+#}
+l = ["log", "-r", "(main..@):: | (main..@)-"]
+#prompt-status = {
+#                doc = "status used as jj status on shell prompt",
+#                definition = ["log", "--ignore-working-copy", "--color", "always", "--revisions", "@", "--no-graph", "--template", '''
+prompt-status = ["log", "--ignore-working-copy", "--color", "always", "--revisions", "@", "--no-graph", "--template", '''
+                  if(root,
+                    format_root_commit(self),
+                    concat(
+                      separate(" ",
+                        if(immutable, label("immutable", "◆")),
+                        if(conflict, label("conflict", "×")),
+                        format_short_change_id_with_change_offset(self),
+                        truncate_end(18, bookmarks, "…"),
+                        tags,
+                        working_copies,
+                        if(config("ui.show-cryptographic-signatures").as_boolean(),
+                          format_short_cryptographic_signature(signature)),
+                        if(empty, label("empty", "∅")),
+                        if(description,
+                          truncate_end(24, description.first_line(), "…"),
+                          label(if(empty, "empty", "description placeholder"), "#"),
+                        ),
+                      ),
+                      "\n"
+                    ),
+                  )''']
