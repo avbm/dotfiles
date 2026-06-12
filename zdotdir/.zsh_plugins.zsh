@@ -3,10 +3,10 @@ source "$HOME/.cache/antidote/github.com/mattmc3/ez-compinit/ez-compinit.plugin.
 fpath+=( "$HOME/.cache/antidote/github.com/zsh-users/zsh-completions/src" )
 fpath+=( "$HOME/.cache/antidote/github.com/mattmc3/zephyr/plugins/completion" )
 source "$HOME/.cache/antidote/github.com/mattmc3/zephyr/plugins/completion/completion.plugin.zsh"
-fpath+=( "$HOME/.cache/antidote/github.com/aloxaf/fzf-tab" )
-source "$HOME/.cache/antidote/github.com/aloxaf/fzf-tab/fzf-tab.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/github.com/mattmc3/zephyr/plugins/editor" )
 source "$HOME/.cache/antidote/github.com/mattmc3/zephyr/plugins/editor/editor.plugin.zsh"
+fpath+=( "$HOME/.cache/antidote/github.com/aloxaf/fzf-tab" )
+source "$HOME/.cache/antidote/github.com/aloxaf/fzf-tab/fzf-tab.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/github.com/mattmc3/zephyr/plugins/history" )
 source "$HOME/.cache/antidote/github.com/mattmc3/zephyr/plugins/history/history.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/github.com/romkatv/powerlevel10k" )
