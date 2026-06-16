@@ -19,7 +19,7 @@ path=(
   $HOME/{,s}bin(N)
   $HOME/.local/{,s}bin(N)
   $HOME/dev/go/bin
-  /opt/{homebrew,local}/{,s}bin(N)
+  /home/linuxbrew/.linuxbrew/{,s}bin(N)
   /usr/local/{,s}bin(N)
   $path
 )
