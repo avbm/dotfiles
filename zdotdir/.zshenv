@@ -6,10 +6,16 @@
 # NOTE: .zshenv needs to live at ~/.zshenv, not in $ZDOTDIR!
 
 # Set ZDOTDIR if you want to re-home Zsh.
-export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
-export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
-export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
+#export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+#export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
+##export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
+#export ZDOTDIR=$HOME/.config/zsh
 export ZDOTDIR=${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}
+
+# Include a snap paths if a profile file for them exist
+if [ -f /etc/profile.d/apps-bin-path.sh ]; then
+    source /etc/profile.d/apps-bin-path.sh
+fi
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU path fpath
@@ -23,3 +29,4 @@ path=(
   /usr/local/{,s}bin(N)
   $path
 )
+
