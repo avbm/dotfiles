@@ -67,6 +67,15 @@
 ;; add copilot support
 ;; (package! copilot
 ;;   :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))
+;; configure copilot.el
+;; accept completion from copilot and fallback to company
+;; (use-package! copilot
+;;   :hook (prog-mode . copilot-mode)
+;;   :bind (:map copilot-completion-map
+;;               ("<tab>" . 'copilot-accept-completion)
+;;               ("TAB" . 'copilot-accept-completion)
+;;               ("C-TAB" . 'copilot-accept-completion-by-word)
+;;               ("C-<tab>" . 'copilot-accept-completion-by-word)))
 
 ;; add agent shell
 (package! shell-maker)
@@ -79,6 +88,3 @@
            :repo "nineluj/agent-review"
            :files ("*.el")))
 
-;; add copilot
-;;(package! copilot
-;;  :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))

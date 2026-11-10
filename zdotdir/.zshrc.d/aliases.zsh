@@ -5,7 +5,7 @@
 
 # single character aliases - be sparing!
 alias _=sudo
-alias l="eza --icons=automatic"
+alias l="eza --icons=auto"
 alias g=git
 alias k=kubectl
 
@@ -15,7 +15,7 @@ alias vi=nvim
 export EDITOR=nvim
 
 # more ways to ls
-alias ls="eza --icons=automatic"
+alias ls="eza --icons=auto"
 alias ll='ls -lh'
 alias la='ls -lAh'
 alias lla='ls -lAh'
