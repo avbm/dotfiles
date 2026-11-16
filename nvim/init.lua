@@ -223,6 +223,11 @@ require("lazy").setup({
     },
 
     {
+      'nvim-treesitter/nvim-treesitter',
+      lazy = false,
+      build = ':TSUpdate'
+    },
+    {
       "romus204/tree-sitter-manager.nvim",
       dependencies = {}, -- tree-sitter CLI must be installed system-wide
       config = function()
@@ -232,80 +237,10 @@ require("lazy").setup({
           -- border = nil, -- border style for the window (e.g. "rounded", "single"), if nil, use the default border style defined by 'vim.o.winborder'. See :h 'winborder' for more info.
           -- auto_install = false, -- if enabled, install missing parsers when editing a new file
           -- highlight = true, -- treesitter highlighting is enabled by default
-          -- languages = {cpp, go, lua, puppet, python, ruby}, -- override or add new parser sources
+          -- languages = {cpp, go, json, lua, puppet, python, ruby, yaml}, -- override or add new parser sources
         })
       end
     },
-    -- {
-    --     -- Highlight, edit, and navigate code
-    --     "nvim-treesitter/nvim-treesitter",
-    --     branch = "main",
-    --     build = ":TSUpdate",
-    --     config = function()
-    --         require("nvim-treesitter").setup({
-    --             ensure_installed = {
-    --                 "c", "cpp", "go", "lua", "python", "puppet",
-    --                 "rust", "tsx", "javascript", "terraform",
-    --                 "typescript", "vimdoc", "vim", "bash",
-    --             },
-    --         })
-    --         vim.api.nvim_create_autocmd("FileType", {
-    --             group = vim.api.nvim_create_augroup("NvimTreesitter", { clear = true }),
-    --             pattern = "*",
-    --             callback = function()
-    --                 pcall(vim.treesitter.start)
-    --                 vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-    --             end,
-    --         })
-    --     end,
-    -- },
-
-    -- {
-    --     "nvim-treesitter/nvim-treesitter-textobjects",
-    --     branch = "main",
-    --     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    --     config = function()
-    --         require("nvim-treesitter-textobjects").setup({
-    --             select = {
-    --                 enable = true,
-    --                 lookahead = true,
-    --                 keymaps = {
-    --                     ["aa"] = "@parameter.outer",
-    --                     ["ia"] = "@parameter.inner",
-    --                     ["af"] = "@function.outer",
-    --                     ["if"] = "@function.inner",
-    --                     ["ac"] = "@class.outer",
-    --                     ["ic"] = "@class.inner",
-    --                 },
-    --             },
-    --             move = {
-    --                 enable = true,
-    --                 set_jumps = true,
-    --                 goto_next_start = {
-    --                     ["]m"] = "@function.outer",
-    --                     ["]]"] = "@class.outer",
-    --                 },
-    --                 goto_next_end = {
-    --                     ["]M"] = "@function.outer",
-    --                     ["]["] = "@class.outer",
-    --                 },
-    --                 goto_previous_start = {
-    --                     ["[m"] = "@function.outer",
-    --                     ["[["] = "@class.outer",
-    --                 },
-    --                 goto_previous_end = {
-    --                     ["[M"] = "@function.outer",
-    --                     ["[]"] = "@class.outer",
-    --                 },
-    --             },
-    --             swap = {
-    --                 enable = true,
-    --                 swap_next = { ["<leader>a"] = "@parameter.inner" },
-    --                 swap_previous = { ["<leader>A"] = "@parameter.inner" },
-    --             },
-    --         })
-    --     end,
-    -- },
 
     -- Tabular to assist with tab alignment
     -- :Tab /= to align on =

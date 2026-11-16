@@ -18,3 +18,4 @@
     ~/util/keepassxc2pass.py: util/keepassxc2pass.py
     ~/.config/zsh: zdotdir
     ~/.zshenv: zdotdir/.zshenv_actual
+    ~/.config/fontconfig: fontconfig

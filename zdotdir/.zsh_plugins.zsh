@@ -11,7 +11,6 @@ fpath+=( "$HOME/.cache/antidote/github.com/mattmc3/zephyr/plugins/history" )
 source "$HOME/.cache/antidote/github.com/mattmc3/zephyr/plugins/history/history.plugin.zsh"
 fpath+=( "$HOME/.cache/antidote/github.com/romkatv/powerlevel10k" )
 source "$HOME/.cache/antidote/github.com/romkatv/powerlevel10k/powerlevel10k.zsh-theme"
-source "$HOME/.cache/antidote/github.com/romkatv/powerlevel10k/powerlevel9k.zsh-theme"
 export PATH="$HOME/.cache/antidote/github.com/romkatv/zsh-bench:$PATH"
 fpath+=( "$HOME/.cache/antidote/github.com/ohmyzsh/ohmyzsh/lib" )
 source "$HOME/.cache/antidote/github.com/ohmyzsh/ohmyzsh/lib/async_prompt.zsh"
