@@ -31,4 +31,7 @@ fzf-repo-widget() {
 zle     -N   fzf-repo-widget
 bindkey '^G' fzf-repo-widget
 
-
+# default fzf keyboard shortcuts
+# CTRL-R - Paste the selected command from history into the command line
+# CTRL-T - Paste the selected file path(s) into the command line
+# ALT-C - cd into the selected directory
